@@ -1,0 +1,24 @@
+# CCS generated build directories
+/Debug/
+/Release/
+
+# CCS generated language-server configuration and cache
+/.clangd
+/.cache/
+compile_commands.json
+
+# Local workspace state
+/.metadata/
+/.theia/
+
+# Compiler and linker output
+*.obj
+*.o
+*.d
+*.out
+*.map
+
+# Operating-system files
+Thumbs.db
+Desktop.ini
+.DS_Store
