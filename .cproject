@@ -39,6 +39,10 @@
                                 <option id="com.ti.ccstudio.buildDefinitions.TMS470_18.12.compilerID.INCLUDE_PATH.100817246" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.12.compilerID.INCLUDE_PATH" valueType="includePath">
                                     <listOptionValue value="${INHERITED_INCLUDE_PATH}"/>
                                     <listOptionValue value="${PROJECT_ROOT}"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Core/Inc"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Bsp/Inc"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Driver/Inc"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/System/Inc"/>
                                     <listOptionValue value="${COM_TI_SIMPLELINK_CC13X0_SDK_INSTALL_DIR}/source/ti/posix/ccs"/>
                                     <listOptionValue value="${CG_TOOL_ROOT}/include"/>
                                 </option>
@@ -124,6 +128,10 @@
                                 <option id="com.ti.ccstudio.buildDefinitions.TMS470_18.12.compilerID.INCLUDE_PATH.1047573793" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.12.compilerID.INCLUDE_PATH" valueType="includePath">
                                     <listOptionValue value="${INHERITED_INCLUDE_PATH}"/>
                                     <listOptionValue value="${PROJECT_ROOT}"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Core/Inc"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Bsp/Inc"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/Driver/Inc"/>
+                                    <listOptionValue value="${PROJECT_ROOT}/System/Inc"/>
                                     <listOptionValue value="${COM_TI_SIMPLELINK_CC13X0_SDK_INSTALL_DIR}/source/ti/posix/ccs"/>
                                     <listOptionValue value="${CG_TOOL_ROOT}/include"/>
                                 </option>
