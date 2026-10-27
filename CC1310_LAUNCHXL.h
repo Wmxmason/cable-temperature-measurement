@@ -32,7 +32,7 @@
 /** ============================================================================
  *  @file       CC1310_LAUNCHXL.h
  *
- *  @brief      CC1310 LaunchPad Board Specific header file.
+ *  @brief      CTM CC1310F128RSMR board configuration.
  *
  *  The CC1310_LAUNCHXL header file should be included in an application as
  *  follows:
@@ -63,81 +63,27 @@ extern const PIN_Config BoardGpioInitTable[];
  *      <board signal alias>                  <pin mapping>   <comments>
  */
 
-/* Analog capable DIOs */
-#define CC1310_LAUNCHXL_DIO23_ANALOG          IOID_23
-#define CC1310_LAUNCHXL_DIO24_ANALOG          IOID_24
-#define CC1310_LAUNCHXL_DIO25_ANALOG          IOID_25
-#define CC1310_LAUNCHXL_DIO26_ANALOG          IOID_26
-#define CC1310_LAUNCHXL_DIO27_ANALOG          IOID_27
-#define CC1310_LAUNCHXL_DIO28_ANALOG          IOID_28
-#define CC1310_LAUNCHXL_DIO29_ANALOG          IOID_29
-#define CC1310_LAUNCHXL_DIO30_ANALOG          IOID_30
-
-/* Digital IOs */
+/* CC1310F128RSMR: 32-pin package, DIO0 through DIO9. */
 #define CC1310_LAUNCHXL_DIO0                  IOID_0
 #define CC1310_LAUNCHXL_DIO1                  IOID_1
-#define CC1310_LAUNCHXL_DIO12                 IOID_12
-#define CC1310_LAUNCHXL_DIO15                 IOID_15
-#define CC1310_LAUNCHXL_DIO16_TDO             IOID_16
-#define CC1310_LAUNCHXL_DIO17_TDI             IOID_17
-#define CC1310_LAUNCHXL_DIO21                 IOID_21
-#define CC1310_LAUNCHXL_DIO22                 IOID_22
+#define CC1310_LAUNCHXL_DIO2                  IOID_2
+#define CC1310_LAUNCHXL_DIO3_TDO              IOID_3
+#define CC1310_LAUNCHXL_DIO4_TDI              IOID_4
+#define CC1310_LAUNCHXL_DIO5_ANALOG           IOID_5
+#define CC1310_LAUNCHXL_DIO6_AUX_SDA          IOID_6
+#define CC1310_LAUNCHXL_DIO7_SCL              IOID_7
+#define CC1310_LAUNCHXL_DIO8_SDA              IOID_8
+#define CC1310_LAUNCHXL_DIO9                  IOID_9
 
-/* Discrete Inputs */
-#define CC1310_LAUNCHXL_PIN_BTN1              IOID_13
-#define CC1310_LAUNCHXL_PIN_BTN2              IOID_14
+/* I2C temperature/humidity sensor */
+#define CC1310_LAUNCHXL_I2C0_SCL0             CC1310_LAUNCHXL_DIO7_SCL
+#define CC1310_LAUNCHXL_I2C0_SDA0             CC1310_LAUNCHXL_DIO8_SDA
 
-/* GPIO */
-#define CC1310_LAUNCHXL_GPIO_LED_ON           1
-#define CC1310_LAUNCHXL_GPIO_LED_OFF          0
-
-/* I2C */
-#define CC1310_LAUNCHXL_I2C0_SCL0             IOID_4
-#define CC1310_LAUNCHXL_I2C0_SDA0             IOID_5
-
-/* I2S */
-#define CC1310_LAUNCHXL_I2S_ADO               IOID_25
-#define CC1310_LAUNCHXL_I2S_ADI               IOID_26
-#define CC1310_LAUNCHXL_I2S_BCLK              IOID_27
-#define CC1310_LAUNCHXL_I2S_MCLK              PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_I2S_WCLK              IOID_28
-
-/* LEDs */
-#define CC1310_LAUNCHXL_PIN_LED_ON            1
-#define CC1310_LAUNCHXL_PIN_LED_OFF           0
-#define CC1310_LAUNCHXL_PIN_RLED              IOID_6
-#define CC1310_LAUNCHXL_PIN_GLED              IOID_7
-
-/* PWM Outputs */
-#define CC1310_LAUNCHXL_PWMPIN0               CC1310_LAUNCHXL_PIN_RLED
-#define CC1310_LAUNCHXL_PWMPIN1               CC1310_LAUNCHXL_PIN_GLED
-#define CC1310_LAUNCHXL_PWMPIN2               PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_PWMPIN3               PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_PWMPIN4               PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_PWMPIN5               PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_PWMPIN6               PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_PWMPIN7               PIN_UNASSIGNED
-
-/* SPI */
-#define CC1310_LAUNCHXL_SPI_FLASH_CS          IOID_20
-#define CC1310_LAUNCHXL_FLASH_CS_ON           0
-#define CC1310_LAUNCHXL_FLASH_CS_OFF          1
-
-/* SPI Board */
-#define CC1310_LAUNCHXL_SPI0_MISO             IOID_8          /* RF1.20 */
-#define CC1310_LAUNCHXL_SPI0_MOSI             IOID_9          /* RF1.18 */
-#define CC1310_LAUNCHXL_SPI0_CLK              IOID_10         /* RF1.16 */
-#define CC1310_LAUNCHXL_SPI0_CSN              IOID_11
-#define CC1310_LAUNCHXL_SPI1_MISO             PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_SPI1_MOSI             PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_SPI1_CLK              PIN_UNASSIGNED
-#define CC1310_LAUNCHXL_SPI1_CSN              PIN_UNASSIGNED
-
-/* UART Board */
-#define CC1310_LAUNCHXL_UART_RX               IOID_2          /* RXD */
-#define CC1310_LAUNCHXL_UART_TX               IOID_3          /* TXD */
-#define CC1310_LAUNCHXL_UART_CTS              IOID_19         /* CTS */
-#define CC1310_LAUNCHXL_UART_RTS              IOID_18         /* RTS */
+/* UART */
+#define CC1310_LAUNCHXL_UART_RX               CC1310_LAUNCHXL_DIO1
+#define CC1310_LAUNCHXL_UART_TX               CC1310_LAUNCHXL_DIO2
+#define CC1310_LAUNCHXL_UART_CTS              PIN_UNASSIGNED
+#define CC1310_LAUNCHXL_UART_RTS              PIN_UNASSIGNED
 
 /*!
  *  @brief  Initialize the general board specific settings
@@ -145,20 +91,6 @@ extern const PIN_Config BoardGpioInitTable[];
  *  This function initializes the general board specific settings.
  */
 void CC1310_LAUNCHXL_initGeneral(void);
-
-/*!
- *  @brief  Turn off the external flash on LaunchPads
- *
- */
-void CC1310_LAUNCHXL_shutDownExtFlash(void);
-
-/*!
- *  @brief  Wake up the external flash present on the board files
- *
- *  This function toggles the chip select for the amount of time needed
- *  to wake the chip up.
- */
-void CC1310_LAUNCHXL_wakeUpExtFlash(void);
 
 /*!
  *  @def    CC1310_LAUNCHXL_ADCBufName
@@ -176,13 +108,6 @@ typedef enum CC1310_LAUNCHXL_ADCBufName {
  */
 typedef enum CC1310_LAUNCHXL_ADCBuf0ChannelName {
     CC1310_LAUNCHXL_ADCBUF0CHANNEL0 = 0,
-    CC1310_LAUNCHXL_ADCBUF0CHANNEL1,
-    CC1310_LAUNCHXL_ADCBUF0CHANNEL2,
-    CC1310_LAUNCHXL_ADCBUF0CHANNEL3,
-    CC1310_LAUNCHXL_ADCBUF0CHANNEL4,
-    CC1310_LAUNCHXL_ADCBUF0CHANNEL5,
-    CC1310_LAUNCHXL_ADCBUF0CHANNEL6,
-    CC1310_LAUNCHXL_ADCBUF0CHANNEL7,
     CC1310_LAUNCHXL_ADCBUF0CHANNELVDDS,
     CC1310_LAUNCHXL_ADCBUF0CHANNELDCOUPL,
     CC1310_LAUNCHXL_ADCBUF0CHANNELVSS,
@@ -196,13 +121,6 @@ typedef enum CC1310_LAUNCHXL_ADCBuf0ChannelName {
  */
 typedef enum CC1310_LAUNCHXL_ADCName {
     CC1310_LAUNCHXL_ADC0 = 0,
-    CC1310_LAUNCHXL_ADC1,
-    CC1310_LAUNCHXL_ADC2,
-    CC1310_LAUNCHXL_ADC3,
-    CC1310_LAUNCHXL_ADC4,
-    CC1310_LAUNCHXL_ADC5,
-    CC1310_LAUNCHXL_ADC6,
-    CC1310_LAUNCHXL_ADC7,
     CC1310_LAUNCHXL_ADCDCOUPL,
     CC1310_LAUNCHXL_ADCVSS,
     CC1310_LAUNCHXL_ADCVDDS,
@@ -295,18 +213,8 @@ typedef enum CC1310_LAUNCHXL_TRNGName {
  *  @brief  Enum of GPIO names
  */
 typedef enum CC1310_LAUNCHXL_GPIOName {
-    CC1310_LAUNCHXL_GPIO_S1 = 0,
-    CC1310_LAUNCHXL_GPIO_S2,
-    CC1310_LAUNCHXL_SPI_MASTER_READY,
-    CC1310_LAUNCHXL_SPI_SLAVE_READY,
-    CC1310_LAUNCHXL_GPIO_LED_GREEN,
-    CC1310_LAUNCHXL_GPIO_LED_RED,
-    CC1310_LAUNCHXL_GPIO_TMP116_EN,
-    CC1310_LAUNCHXL_GPIO_SPI_FLASH_CS,
-    CC1310_LAUNCHXL_SDSPI_CS,
-    CC1310_LAUNCHXL_GPIO_LCD_CS,
-    CC1310_LAUNCHXL_GPIO_LCD_POWER,
-    CC1310_LAUNCHXL_GPIO_LCD_ENABLE,
+    CC1310_LAUNCHXL_GPIO_AUX_SDA = 0,
+
     CC1310_LAUNCHXL_GPIOCOUNT
 } CC1310_LAUNCHXL_GPIOName;
 
@@ -351,16 +259,6 @@ typedef enum CC1310_LAUNCHXL_I2CName {
 } CC1310_LAUNCHXL_I2CName;
 
 /*!
- *  @def    CC1310_LAUNCHXL_I2SName
- *  @brief  Enum of I2S names
- */
-typedef enum CC1310_LAUNCHXL_I2SName {
-    CC1310_LAUNCHXL_I2S0 = 0,
-
-    CC1310_LAUNCHXL_I2SCOUNT
-} CC1310_LAUNCHXL_I2SName;
-
-/*!
  *  @def    CC1310_LAUNCHXL_NVSName
  *  @brief  Enum of NVS names
  */
@@ -368,50 +266,9 @@ typedef enum CC1310_LAUNCHXL_NVSName {
 #ifndef Board_EXCLUDE_NVS_INTERNAL_FLASH
     CC1310_LAUNCHXL_NVSCC26XX0 = 0,
 #endif
-#ifndef Board_EXCLUDE_NVS_EXTERNAL_FLASH
-    CC1310_LAUNCHXL_NVSSPI25X0,
-#endif
 
     CC1310_LAUNCHXL_NVSCOUNT
 } CC1310_LAUNCHXL_NVSName;
-
-/*!
- *  @def    CC1310_LAUNCHXL_PWM
- *  @brief  Enum of PWM outputs
- */
-typedef enum CC1310_LAUNCHXL_PWMName {
-    CC1310_LAUNCHXL_PWM0 = 0,
-    CC1310_LAUNCHXL_PWM1,
-    CC1310_LAUNCHXL_PWM2,
-    CC1310_LAUNCHXL_PWM3,
-    CC1310_LAUNCHXL_PWM4,
-    CC1310_LAUNCHXL_PWM5,
-    CC1310_LAUNCHXL_PWM6,
-    CC1310_LAUNCHXL_PWM7,
-
-    CC1310_LAUNCHXL_PWMCOUNT
-} CC1310_LAUNCHXL_PWMName;
-
-/*!
- *  @def    CC1310_LAUNCHXL_SDName
- *  @brief  Enum of SD names
- */
-typedef enum CC1310_LAUNCHXL_SDName {
-    CC1310_LAUNCHXL_SDSPI0 = 0,
-
-    CC1310_LAUNCHXL_SDCOUNT
-} CC1310_LAUNCHXL_SDName;
-
-/*!
- *  @def    CC1310_LAUNCHXL_SPIName
- *  @brief  Enum of SPI names
- */
-typedef enum CC1310_LAUNCHXL_SPIName {
-    CC1310_LAUNCHXL_SPI0 = 0,
-    CC1310_LAUNCHXL_SPI1,
-
-    CC1310_LAUNCHXL_SPICOUNT
-} CC1310_LAUNCHXL_SPIName;
 
 /*!
  *  @def    CC1310_LAUNCHXL_UARTName

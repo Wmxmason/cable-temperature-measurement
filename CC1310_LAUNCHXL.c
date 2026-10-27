@@ -33,7 +33,7 @@
 /*
  *  ====================== CC1310_LAUNCHXL.c ===================================
  *  This file is responsible for setting up the board specific items for the
- *  CC1310_LAUNCHXL board.
+ *  CTM CC1310F128RSMR board.
  */
 
 #include <stdbool.h>
@@ -63,14 +63,7 @@ ADCBufCC26XX_Object adcBufCC26xxObjects[CC1310_LAUNCHXL_ADCBUFCOUNT];
  *  entries. The mapping of dio and internal signals is package dependent.
  */
 const ADCBufCC26XX_AdcChannelLutEntry ADCBufCC26XX_adcChannelLut[CC1310_LAUNCHXL_ADCBUF0CHANNELCOUNT] = {
-    {CC1310_LAUNCHXL_DIO23_ANALOG, ADC_COMPB_IN_AUXIO7},
-    {CC1310_LAUNCHXL_DIO24_ANALOG, ADC_COMPB_IN_AUXIO6},
-    {CC1310_LAUNCHXL_DIO25_ANALOG, ADC_COMPB_IN_AUXIO5},
-    {CC1310_LAUNCHXL_DIO26_ANALOG, ADC_COMPB_IN_AUXIO4},
-    {CC1310_LAUNCHXL_DIO27_ANALOG, ADC_COMPB_IN_AUXIO3},
-    {CC1310_LAUNCHXL_DIO28_ANALOG, ADC_COMPB_IN_AUXIO2},
-    {CC1310_LAUNCHXL_DIO29_ANALOG, ADC_COMPB_IN_AUXIO1},
-    {CC1310_LAUNCHXL_DIO30_ANALOG, ADC_COMPB_IN_AUXIO0},
+    {CC1310_LAUNCHXL_DIO5_ANALOG, ADC_COMPB_IN_AUXIO7},
     {PIN_UNASSIGNED, ADC_COMPB_IN_VDDS},
     {PIN_UNASSIGNED, ADC_COMPB_IN_DCOUPL},
     {PIN_UNASSIGNED, ADC_COMPB_IN_VSS},
@@ -105,73 +98,10 @@ ADCCC26XX_Object adcCC26xxObjects[CC1310_LAUNCHXL_ADCCOUNT];
 
 const ADCCC26XX_HWAttrs adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADCCOUNT] = {
     {
-        .adcDIO              = CC1310_LAUNCHXL_DIO23_ANALOG,
+        .adcDIO              = CC1310_LAUNCHXL_DIO5_ANALOG,
         .adcCompBInput       = ADC_COMPB_IN_AUXIO7,
         .refSource           = ADCCC26XX_FIXED_REFERENCE,
         .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
-        .inputScalingEnabled = true,
-        .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
-        .returnAdjustedVal   = false
-    },
-    {
-        .adcDIO              = CC1310_LAUNCHXL_DIO24_ANALOG,
-        .adcCompBInput       = ADC_COMPB_IN_AUXIO6,
-        .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
-        .inputScalingEnabled = true,
-        .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
-        .returnAdjustedVal   = false
-    },
-    {
-        .adcDIO              = CC1310_LAUNCHXL_DIO25_ANALOG,
-        .adcCompBInput       = ADC_COMPB_IN_AUXIO5,
-        .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
-        .inputScalingEnabled = true,
-        .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
-        .returnAdjustedVal   = false
-    },
-    {
-        .adcDIO              = CC1310_LAUNCHXL_DIO26_ANALOG,
-        .adcCompBInput       = ADC_COMPB_IN_AUXIO4,
-        .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
-        .inputScalingEnabled = true,
-        .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
-        .returnAdjustedVal   = false
-    },
-    {
-        .adcDIO              = CC1310_LAUNCHXL_DIO27_ANALOG,
-        .adcCompBInput       = ADC_COMPB_IN_AUXIO3,
-        .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
-        .inputScalingEnabled = true,
-        .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
-        .returnAdjustedVal   = false
-    },
-    {
-        .adcDIO              = CC1310_LAUNCHXL_DIO28_ANALOG,
-        .adcCompBInput       = ADC_COMPB_IN_AUXIO2,
-        .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
-        .inputScalingEnabled = true,
-        .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
-        .returnAdjustedVal   = false
-    },
-    {
-        .adcDIO              = CC1310_LAUNCHXL_DIO29_ANALOG,
-        .adcCompBInput       = ADC_COMPB_IN_AUXIO1,
-        .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
-        .inputScalingEnabled = true,
-        .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
-        .returnAdjustedVal   = false
-    },
-    {
-        .adcDIO              = CC1310_LAUNCHXL_DIO30_ANALOG,
-        .adcCompBInput       = ADC_COMPB_IN_AUXIO0,
-        .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_10P9_MS,
         .inputScalingEnabled = true,
         .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
         .returnAdjustedVal   = false
@@ -207,13 +137,6 @@ const ADCCC26XX_HWAttrs adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADCCOUNT] = {
 
 const ADC_Config ADC_config[CC1310_LAUNCHXL_ADCCOUNT] = {
     {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC0], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC0]},
-    {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC1], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC1]},
-    {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC2], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC2]},
-    {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC3], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC3]},
-    {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC4], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC4]},
-    {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC5], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC5]},
-    {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC6], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC6]},
-    {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADC7], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADC7]},
     {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADCDCOUPL], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADCDCOUPL]},
     {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADCVSS], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADCVSS]},
     {&ADCCC26XX_fxnTable, &adcCC26xxObjects[CC1310_LAUNCHXL_ADCVDDS], &adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADCVDDS]},
@@ -413,85 +336,27 @@ const uint_least8_t TRNG_count = CC1310_LAUNCHXL_TRNGCOUNT;
  */
 #include <ti/display/Display.h>
 #include <ti/display/DisplayUart.h>
-#include <ti/display/DisplaySharp.h>
 
-#ifndef BOARD_DISPLAY_UART_STRBUF_SIZE
-#define BOARD_DISPLAY_UART_STRBUF_SIZE    128
-#endif
-
-/* This value can be changed to 96 for use with the 430BOOST-SHARP96 BoosterPack. */
-#define BOARD_DISPLAY_SHARP_SIZE    128
-
-DisplayUart_Object     displayUartObject;
-DisplaySharp_Object    displaySharpObject;
-
-static char uartStringBuf[BOARD_DISPLAY_UART_STRBUF_SIZE];
-static uint_least8_t sharpDisplayBuf[BOARD_DISPLAY_SHARP_SIZE * BOARD_DISPLAY_SHARP_SIZE / 8];
+DisplayUart_Object displayUartObject;
+static char uartStringBuf[128];
 
 const DisplayUart_HWAttrs displayUartHWAttrs = {
     .uartIdx      = CC1310_LAUNCHXL_UART0,
     .baudRate     = 115200,
     .mutexTimeout = (unsigned int)(-1),
     .strBuf       = uartStringBuf,
-    .strBufLen    = BOARD_DISPLAY_UART_STRBUF_SIZE,
+    .strBufLen    = sizeof(uartStringBuf),
 };
-
-const DisplaySharp_HWAttrsV1 displaySharpHWattrs = {
-    .spiIndex    = CC1310_LAUNCHXL_SPI0,
-    .csPin       = CC1310_LAUNCHXL_GPIO_LCD_CS,
-    .powerPin    = CC1310_LAUNCHXL_GPIO_LCD_POWER,
-    .enablePin   = CC1310_LAUNCHXL_GPIO_LCD_ENABLE,
-    .pixelWidth  = BOARD_DISPLAY_SHARP_SIZE,
-    .pixelHeight = BOARD_DISPLAY_SHARP_SIZE,
-    .displayBuf  = sharpDisplayBuf,
-};
-
-#ifndef BOARD_DISPLAY_USE_UART
-#define BOARD_DISPLAY_USE_UART 1
-#endif
-#ifndef BOARD_DISPLAY_USE_UART_ANSI
-#define BOARD_DISPLAY_USE_UART_ANSI 0
-#endif
-#ifndef BOARD_DISPLAY_USE_LCD
-#define BOARD_DISPLAY_USE_LCD 0
-#endif
-
-/*
- * This #if/#else is needed to workaround a problem with the
- * IAR compiler. The IAR compiler doesn't like the empty array
- * initialization. (IAR Error[Pe1345])
- */
-#if (BOARD_DISPLAY_USE_UART || BOARD_DISPLAY_USE_LCD)
 
 const Display_Config Display_config[] = {
-#if (BOARD_DISPLAY_USE_UART)
     {
-#  if (BOARD_DISPLAY_USE_UART_ANSI)
-        .fxnTablePtr = &DisplayUartAnsi_fxnTable,
-#  else /* Default to minimal UART with no cursor placement */
         .fxnTablePtr = &DisplayUartMin_fxnTable,
-#  endif
         .object      = &displayUartObject,
         .hwAttrs     = &displayUartHWAttrs,
     },
-#endif
-#if (BOARD_DISPLAY_USE_LCD)
-    {
-        .fxnTablePtr = &DisplaySharp_fxnTable,
-        .object      = &displaySharpObject,
-        .hwAttrs     = &displaySharpHWattrs
-    },
-#endif
 };
 
 const uint_least8_t Display_count = sizeof(Display_config) / sizeof(Display_Config);
-
-#else
-
-const Display_Config *Display_config = NULL;
-const uint_least8_t Display_count = 0;
-
-#endif /* (BOARD_DISPLAY_USE_UART || BOARD_DISPLAY_USE_LCD) */
 
 /*
  *  =============================== GPIO ===============================
@@ -499,59 +364,20 @@ const uint_least8_t Display_count = 0;
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/gpio/GPIOCC26XX.h>
 
-/*
- * Array of Pin configurations
- * NOTE: The order of the pin configurations must coincide with what was
- *       defined in CC1310_LAUNCHXL.h
- * NOTE: Pins not used for interrupts should be placed at the end of the
- *       array. Callback entries can be omitted from callbacks array to
- *       reduce memory usage.
- */
 GPIO_PinConfig gpioPinConfigs[] = {
-    /* Input pins */
-    GPIOCC26XX_DIO_13 | GPIO_DO_NOT_CONFIG,  /* Button 0 */
-    GPIOCC26XX_DIO_14 | GPIO_DO_NOT_CONFIG,  /* Button 1 */
-
-    GPIOCC26XX_DIO_15 | GPIO_DO_NOT_CONFIG,  /* CC1310_LAUNCHXL_SPI_MASTER_READY */
-    GPIOCC26XX_DIO_21 | GPIO_DO_NOT_CONFIG,  /* CC1310_LAUNCHXL_SPI_SLAVE_READY */
-
-    /* Output pins */
-    GPIOCC26XX_DIO_07 | GPIO_DO_NOT_CONFIG,  /* Green LED */
-    GPIOCC26XX_DIO_06 | GPIO_DO_NOT_CONFIG,  /* Red LED */
-    GPIOCC26XX_DIO_30 | GPIO_DO_NOT_CONFIG,  /* TMP116_EN */
-
-    /* SPI Flash CSN */
-    GPIOCC26XX_DIO_20 | GPIO_DO_NOT_CONFIG,
-
-    /* SD CS */
-    GPIOCC26XX_DIO_21 | GPIO_DO_NOT_CONFIG,
-
-    /* Sharp Display - GPIO configurations will be done in the Display files */
-    GPIOCC26XX_DIO_24 | GPIO_DO_NOT_CONFIG, /* SPI chip select */
-    GPIOCC26XX_DIO_22 | GPIO_DO_NOT_CONFIG, /* LCD power control */
-    GPIOCC26XX_DIO_23 | GPIO_DO_NOT_CONFIG, /*LCD enable */
-
+    /* DIO6 用途由外接 NTC 回路确认，默认不改变其引脚状态。 */
+    GPIOCC26XX_DIO_06 | GPIO_DO_NOT_CONFIG,
 };
 
-/*
- * Array of callback function pointers
- * NOTE: The order of the pin configurations must coincide with what was
- *       defined in CC1310_LAUNCH.h
- * NOTE: Pins not used for interrupts can be omitted from callbacks array to
- *       reduce memory usage (if placed at end of gpioPinConfigs array).
- */
 GPIO_CallbackFxn gpioCallbackFunctions[] = {
-    NULL,  /* Button 0 */
-    NULL,  /* Button 1 */
-    NULL,  /* CC1310_LAUNCHXL_SPI_MASTER_READY */
-    NULL,  /* CC1310_LAUNCHXL_SPI_SLAVE_READY */
+    NULL,
 };
 
 const GPIOCC26XX_Config GPIOCC26XX_config = {
-    .pinConfigs = (GPIO_PinConfig *)gpioPinConfigs,
-    .callbacks = (GPIO_CallbackFxn *)gpioCallbackFunctions,
+    .pinConfigs = gpioPinConfigs,
+    .callbacks = gpioCallbackFunctions,
     .numberOfPinConfigs = CC1310_LAUNCHXL_GPIOCOUNT,
-    .numberOfCallbacks  = sizeof(gpioCallbackFunctions)/sizeof(GPIO_CallbackFxn),
+    .numberOfCallbacks = sizeof(gpioCallbackFunctions) / sizeof(GPIO_CallbackFxn),
     .intPriority = (~0)
 };
 
@@ -616,38 +442,9 @@ const I2C_Config I2C_config[CC1310_LAUNCHXL_I2CCOUNT] = {
 const uint_least8_t I2C_count = CC1310_LAUNCHXL_I2CCOUNT;
 
 /*
- *  =============================== I2S ===============================
-*/
-#include <ti/drivers/I2S.h>
-#include <ti/drivers/i2s/I2SCC26XX.h>
-
-I2SCC26XX_Object i2sCC26XXObjects[CC1310_LAUNCHXL_I2SCOUNT];
-
-const I2SCC26XX_HWAttrs i2sCC26XXHWAttrs[CC1310_LAUNCHXL_I2SCOUNT] = {
-    {
-        .pinSD1      =  CC1310_LAUNCHXL_I2S_ADI,
-        .pinSD0      =  CC1310_LAUNCHXL_I2S_ADO,
-        .pinSCK      =  CC1310_LAUNCHXL_I2S_BCLK,
-        .pinMCLK     =  CC1310_LAUNCHXL_I2S_MCLK,
-        .pinWS       =  CC1310_LAUNCHXL_I2S_WCLK,
-        .intPriority = ~0,
-    }
-};
-
-const I2S_Config I2S_config[CC1310_LAUNCHXL_I2SCOUNT] = {
-    {
-        .object      = &i2sCC26XXObjects[CC1310_LAUNCHXL_I2S0],
-        .hwAttrs     = &i2sCC26XXHWAttrs[CC1310_LAUNCHXL_I2S0]
-    },
-};
-
-const uint_least8_t I2S_count = CC1310_LAUNCHXL_I2SCOUNT;
-
-/*
  *  =============================== NVS ===============================
  */
 #include <ti/drivers/NVS.h>
-#include <ti/drivers/nvs/NVSSPI25X.h>
 #include <ti/drivers/nvs/NVSCC26XX.h>
 
 #define NVS_REGIONS_BASE 0x1A000
@@ -706,49 +503,14 @@ const NVSCC26XX_HWAttrs nvsCC26xxHWAttrs[1] = {
 
 #endif /* Board_EXCLUDE_NVS_INTERNAL_FLASH */
 
-#ifndef Board_EXCLUDE_NVS_EXTERNAL_FLASH
 
-#define SPISECTORSIZE    0x1000
-#define SPIREGIONSIZE    (SPISECTORSIZE * 32)
-#define VERIFYBUFSIZE    64
-
-static uint8_t verifyBuf[VERIFYBUFSIZE];
-
-/* Allocate objects for NVS External Regions */
-NVSSPI25X_Object nvsSPI25XObjects[1];
-
-/* Hardware attributes for NVS External Regions */
-const NVSSPI25X_HWAttrs nvsSPI25XHWAttrs[1] = {
-    {
-        .regionBaseOffset = 0,
-        .regionSize = SPIREGIONSIZE,
-        .sectorSize = SPISECTORSIZE,
-        .verifyBuf = verifyBuf,
-        .verifyBufSize = VERIFYBUFSIZE,
-        .spiHandle = NULL,
-        .spiIndex = 0,
-        .spiBitRate = 4000000,
-        .spiCsnGpioIndex = CC1310_LAUNCHXL_GPIO_SPI_FLASH_CS,
-        .statusPollDelayUs = 100,
-    },
-};
-
-#endif /* Board_EXCLUDE_NVS_EXTERNAL_FLASH */
-
-/* NVS Region index 0 and 1 refer to NVS and NVS SPI respectively */
+/* Internal flash NVS region. */
 const NVS_Config NVS_config[CC1310_LAUNCHXL_NVSCOUNT] = {
 #ifndef Board_EXCLUDE_NVS_INTERNAL_FLASH
     {
         .fxnTablePtr = &NVSCC26XX_fxnTable,
         .object = &nvsCC26xxObjects[0],
         .hwAttrs = &nvsCC26xxHWAttrs[0],
-    },
-#endif
-#ifndef Board_EXCLUDE_NVS_EXTERNAL_FLASH
-    {
-        .fxnTablePtr = &NVSSPI25X_fxnTable,
-        .object = &nvsSPI25XObjects[0],
-        .hwAttrs = &nvsSPI25XHWAttrs[0],
     },
 #endif
 };
@@ -763,16 +525,9 @@ const uint_least8_t NVS_count = CC1310_LAUNCHXL_NVSCOUNT;
 
 const PIN_Config BoardGpioInitTable[] = {
 
-    CC1310_LAUNCHXL_PIN_RLED | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,       /* LED initially off          */
-    CC1310_LAUNCHXL_PIN_GLED | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,       /* LED initially off          */
-    CC1310_LAUNCHXL_PIN_BTN1 | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_BOTHEDGES | PIN_HYSTERESIS,          /* Button is active low       */
-    CC1310_LAUNCHXL_PIN_BTN2 | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_BOTHEDGES | PIN_HYSTERESIS,          /* Button is active low       */
-    CC1310_LAUNCHXL_SPI_FLASH_CS | PIN_GPIO_OUTPUT_EN | PIN_GPIO_HIGH | PIN_PUSHPULL | PIN_DRVSTR_MIN,  /* External flash chip select */
-    CC1310_LAUNCHXL_UART_RX | PIN_INPUT_EN | PIN_PULLDOWN,                                              /* UART RX via debugger back channel */
-    CC1310_LAUNCHXL_UART_TX | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL,                         /* UART TX via debugger back channel */
-    CC1310_LAUNCHXL_SPI0_MOSI | PIN_INPUT_EN | PIN_PULLDOWN,                                            /* SPI master out - slave in */
-    CC1310_LAUNCHXL_SPI0_MISO | PIN_INPUT_EN | PIN_PULLDOWN,                                            /* SPI master in - slave out */
-    CC1310_LAUNCHXL_SPI0_CLK | PIN_INPUT_EN | PIN_PULLDOWN,                                             /* SPI clock */
+    /* 自制板首轮仅配置 UART，其余 DIO 使用 PIN 驱动默认状态。 */
+    CC1310_LAUNCHXL_UART_RX | PIN_INPUT_EN | PIN_PULLUP,
+    CC1310_LAUNCHXL_UART_TX | PIN_GPIO_OUTPUT_EN | PIN_GPIO_HIGH | PIN_PUSHPULL,
 
     PIN_TERMINATE
 };
@@ -798,39 +553,6 @@ const PowerCC26XX_Config PowerCC26XX_config = {
 };
 
 /*
- *  =============================== PWM ===============================
- *  Remove unused entries to reduce flash usage both in Board.c and Board.h
- */
-#include <ti/drivers/PWM.h>
-#include <ti/drivers/pwm/PWMTimerCC26XX.h>
-
-PWMTimerCC26XX_Object pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWMCOUNT];
-
-const PWMTimerCC26XX_HwAttrs pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWMCOUNT] = {
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN0, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER0A },
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN1, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER0B },
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN2, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER1A },
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN3, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER1B },
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN4, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER2A },
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN5, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER2B },
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN6, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER3A },
-    { .pwmPin = CC1310_LAUNCHXL_PWMPIN7, .gpTimerUnit = CC1310_LAUNCHXL_GPTIMER3B },
-};
-
-const PWM_Config PWM_config[CC1310_LAUNCHXL_PWMCOUNT] = {
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM0], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM0] },
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM1], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM1] },
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM2], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM2] },
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM3], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM3] },
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM4], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM4] },
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM5], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM5] },
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM6], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM6] },
-    { &PWMTimerCC26XX_fxnTable, &pwmtimerCC26xxObjects[CC1310_LAUNCHXL_PWM7], &pwmtimerCC26xxHWAttrs[CC1310_LAUNCHXL_PWM7] },
-};
-
-const uint_least8_t PWM_count = CC1310_LAUNCHXL_PWMCOUNT;
-
-/*
  *  =============================== RF Driver ===============================
  */
 #include <ti/drivers/rf/RF.h>
@@ -842,92 +564,6 @@ const RFCC26XX_HWAttrsV2 RFCC26XX_hwAttrs = {
     .globalCallback     = NULL,     /* No board specific callback */
     .globalEventMask    = 0         /* No events subscribed to */
 };
-
-/*
- *  =============================== SD ===============================
- */
-#include <ti/drivers/SD.h>
-#include <ti/drivers/sd/SDSPI.h>
-
-SDSPI_Object sdspiObjects[CC1310_LAUNCHXL_SDCOUNT];
-
-const SDSPI_HWAttrs sdspiHWAttrs[CC1310_LAUNCHXL_SDCOUNT] = {
-    {
-        .spiIndex = CC1310_LAUNCHXL_SPI0,
-        .spiCsGpioIndex = CC1310_LAUNCHXL_SDSPI_CS
-    }
-};
-
-const SD_Config SD_config[CC1310_LAUNCHXL_SDCOUNT] = {
-    {
-        .fxnTablePtr = &SDSPI_fxnTable,
-        .object = &sdspiObjects[CC1310_LAUNCHXL_SDSPI0],
-        .hwAttrs = &sdspiHWAttrs[CC1310_LAUNCHXL_SDSPI0]
-    },
-};
-
-const uint_least8_t SD_count = CC1310_LAUNCHXL_SDCOUNT;
-
-/*
- *  =============================== SPI DMA ===============================
- */
-#include <ti/drivers/SPI.h>
-#include <ti/drivers/spi/SPICC26XXDMA.h>
-
-SPICC26XXDMA_Object spiCC26XXDMAObjects[CC1310_LAUNCHXL_SPICOUNT];
-
-/*
- * NOTE: The SPI instances below can be used by the SD driver to communicate
- * with a SD card via SPI.  The 'defaultTxBufValue' fields below are set to 0xFF
- * to satisfy the SDSPI driver requirement.
- */
-const SPICC26XXDMA_HWAttrsV1 spiCC26XXDMAHWAttrs[CC1310_LAUNCHXL_SPICOUNT] = {
-    {
-        .baseAddr           = SSI0_BASE,
-        .intNum             = INT_SSI0_COMB,
-        .intPriority        = ~0,
-        .swiPriority        = 0,
-        .powerMngrId        = PowerCC26XX_PERIPH_SSI0,
-        .defaultTxBufValue  = 0xFF,
-        .rxChannelBitMask   = 1<<UDMA_CHAN_SSI0_RX,
-        .txChannelBitMask   = 1<<UDMA_CHAN_SSI0_TX,
-        .mosiPin            = CC1310_LAUNCHXL_SPI0_MOSI,
-        .misoPin            = CC1310_LAUNCHXL_SPI0_MISO,
-        .clkPin             = CC1310_LAUNCHXL_SPI0_CLK,
-        .csnPin             = CC1310_LAUNCHXL_SPI0_CSN,
-        .minDmaTransferSize = 10
-    },
-    {
-        .baseAddr           = SSI1_BASE,
-        .intNum             = INT_SSI1_COMB,
-        .intPriority        = ~0,
-        .swiPriority        = 0,
-        .powerMngrId        = PowerCC26XX_PERIPH_SSI1,
-        .defaultTxBufValue  = 0xFF,
-        .rxChannelBitMask   = 1<<UDMA_CHAN_SSI1_RX,
-        .txChannelBitMask   = 1<<UDMA_CHAN_SSI1_TX,
-        .mosiPin            = CC1310_LAUNCHXL_SPI1_MOSI,
-        .misoPin            = CC1310_LAUNCHXL_SPI1_MISO,
-        .clkPin             = CC1310_LAUNCHXL_SPI1_CLK,
-        .csnPin             = CC1310_LAUNCHXL_SPI1_CSN,
-        .minDmaTransferSize = 10
-    }
-};
-
-const SPI_Config SPI_config[CC1310_LAUNCHXL_SPICOUNT] = {
-    {
-         .fxnTablePtr = &SPICC26XXDMA_fxnTable,
-         .object      = &spiCC26XXDMAObjects[CC1310_LAUNCHXL_SPI0],
-         .hwAttrs     = &spiCC26XXDMAHWAttrs[CC1310_LAUNCHXL_SPI0]
-    },
-    {
-         .fxnTablePtr = &SPICC26XXDMA_fxnTable,
-         .object      = &spiCC26XXDMAObjects[CC1310_LAUNCHXL_SPI1],
-         .hwAttrs     = &spiCC26XXDMAHWAttrs[CC1310_LAUNCHXL_SPI1]
-    },
-};
-
-const uint_least8_t SPI_count = CC1310_LAUNCHXL_SPICOUNT;
 
 /*
  *  =============================== UART ===============================
@@ -948,8 +584,8 @@ const UARTCC26XX_HWAttrsV2 uartCC26XXHWAttrs[CC1310_LAUNCHXL_UARTCOUNT] = {
         .swiPriority    = 0,
         .txPin          = CC1310_LAUNCHXL_UART_TX,
         .rxPin          = CC1310_LAUNCHXL_UART_RX,
-        .ctsPin         = PIN_UNASSIGNED,
-        .rtsPin         = PIN_UNASSIGNED,
+        .ctsPin         = CC1310_LAUNCHXL_UART_CTS,
+        .rtsPin         = CC1310_LAUNCHXL_UART_RTS,
         .ringBufPtr     = uartCC26XXRingBuffer[CC1310_LAUNCHXL_UART0],
         .ringBufSize    = sizeof(uartCC26XXRingBuffer[CC1310_LAUNCHXL_UART0]),
         .txIntFifoThr   = UARTCC26XX_FIFO_THRESHOLD_1_8,
@@ -1017,7 +653,7 @@ const Watchdog_Config Watchdog_config[CC1310_LAUNCHXL_WATCHDOGCOUNT] = {
 const uint_least8_t Watchdog_count = CC1310_LAUNCHXL_WATCHDOGCOUNT;
 
 /*
- *  Board-specific initialization function to disable external flash.
+ *  Board-specific initialization hook.
  *  This function is defined in the file CC1310_LAUNCHXL_fxns.c
  */
 extern void Board_initHook(void);

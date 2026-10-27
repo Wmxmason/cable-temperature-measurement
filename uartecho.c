@@ -37,7 +37,6 @@
 #include <stddef.h>
 
 /* Driver Header files */
-#include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
 
 /* Example/Board Header files */
@@ -49,19 +48,12 @@
 void *mainThread(void *arg0)
 {
     char        input;
-    const char  echoPrompt[] = "Echoing characters:\r\n";
+    const char  echoPrompt[] = "CTM UART ready: RX=DIO1 TX=DIO2, 115200 8N1\r\n";
     UART_Handle uart;
     UART_Params uartParams;
 
     /* Call driver init functions */
-    GPIO_init();
     UART_init();
-
-    /* Configure the LED pin */
-    GPIO_setConfig(Board_GPIO_LED0, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
-
-    /* Turn on user LED */
-    GPIO_write(Board_GPIO_LED0, Board_GPIO_LED_ON);
 
     /* Create a UART with data processing off. */
     UART_Params_init(&uartParams);
@@ -78,11 +70,12 @@ void *mainThread(void *arg0)
         while (1);
     }
 
-    UART_write(uart, echoPrompt, sizeof(echoPrompt));
+    UART_write(uart, echoPrompt, sizeof(echoPrompt) - 1);
 
     /* Loop forever echoing */
     while (1) {
-        UART_read(uart, &input, 1);
-        UART_write(uart, &input, 1);
+        if (UART_read(uart, &input, 1) == 1) {
+            UART_write(uart, &input, 1);
+        }
     }
 }
