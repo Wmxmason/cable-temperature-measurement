@@ -49,6 +49,7 @@ extern "C" {
 
 #define Board_ADC0              CC1310_LAUNCHXL_ADC0
 #define Board_ADC_NTC           CC1310_LAUNCHXL_ADC0
+#define Board_ADC_VDDS          CC1310_LAUNCHXL_ADCVDDS
 
 #define Board_DIO0              CC1310_LAUNCHXL_DIO0
 #define Board_DIO1              CC1310_LAUNCHXL_DIO1

@@ -101,7 +101,8 @@ const ADCCC26XX_HWAttrs adcCC26xxHWAttrs[CC1310_LAUNCHXL_ADCCOUNT] = {
         .adcDIO              = CC1310_LAUNCHXL_DIO5_ANALOG,
         .adcCompBInput       = ADC_COMPB_IN_AUXIO7,
         .refSource           = ADCCC26XX_FIXED_REFERENCE,
-        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_2P7_US,
+        /* NTC 分压源阻抗最高接近 10kΩ，延长采样窗口。 */
+        .samplingDuration    = ADCCC26XX_SAMPLING_DURATION_42P6_US,
         .inputScalingEnabled = true,
         .triggerSource       = ADCCC26XX_TRIGGER_MANUAL,
         .returnAdjustedVal   = false
@@ -365,7 +366,7 @@ const uint_least8_t Display_count = sizeof(Display_config) / sizeof(Display_Conf
 #include <ti/drivers/gpio/GPIOCC26XX.h>
 
 GPIO_PinConfig gpioPinConfigs[] = {
-    /* DIO6 用途由外接 NTC 回路确认，默认不改变其引脚状态。 */
+    /* DIO6 由 NTC 驱动通过 PIN 接口配置为分压回路低端。 */
     GPIOCC26XX_DIO_06 | GPIO_DO_NOT_CONFIG,
 };
 

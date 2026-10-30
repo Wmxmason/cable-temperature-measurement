@@ -84,6 +84,9 @@
                             <tool id="com.ti.ccstudio.buildDefinitions.TMS470_18.12.hex.1164910813" name="Arm Hex Utility" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.12.hex"/>
                         </toolChain>
                     </folderInfo>
+                    <sourceEntries>
+                        <entry excluding="tests|Debug|Release" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                    </sourceEntries>
                 </configuration>
             </storageModule>
             <storageModule moduleId="org.eclipse.cdt.core.externalSettings">
@@ -174,6 +177,9 @@
                             <tool id="com.ti.ccstudio.buildDefinitions.TMS470_18.12.hex.224446214" name="Arm Hex Utility" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.12.hex"/>
                         </toolChain>
                     </folderInfo>
+                    <sourceEntries>
+                        <entry excluding="tests|Debug|Release" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                    </sourceEntries>
                 </configuration>
             </storageModule>
             <storageModule moduleId="org.eclipse.cdt.core.externalSettings">
